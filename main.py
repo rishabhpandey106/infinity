@@ -14,7 +14,7 @@ embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Function to load FAISS index from disk
 def load_faiss_index(index_path: str):
-    faiss_index = FAISS.load_local(index_path, embedding_model)
+    faiss_index = FAISS.load_local(index_path, embedding_model, allow_dangerous_deserialization=True)
     return faiss_index
 
 # Function to generate embedding for a query

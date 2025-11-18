@@ -31,7 +31,7 @@ def search_faiss_index(query_embedding, faiss_index, top_k=5):
 def main():
     st.title("Document Search with FAISS")
     
-    DB_FAISS_PATH = "C:\\Users\\Rishabh\\Desktop\\hack\\rag\\faiss"  # Path where your FAISS index is saved
+    DB_FAISS_PATH = "faiss"  # Path where your FAISS index is saved
     faiss_index = load_faiss_index(DB_FAISS_PATH)
 
     chunks = []  

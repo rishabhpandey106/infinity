@@ -23,7 +23,7 @@ def generate_query_embedding(query: str):
     return query_embedding
 
 # Function to search the FAISS index for the most similar chunk
-def search_faiss_index(query_embedding, faiss_index, top_k=5):
+def search_faiss_index(query_embedding, faiss_index, top_k=3):
     D, I = faiss_index.index.search(query_embedding, top_k)  # Perform the search
     return D, I
 
@@ -41,7 +41,7 @@ def main():
     if query:
         # Prefer using the FAISS vectorstore API which returns stored Document objects
         try:
-            results = faiss_index.similarity_search(query, k=5)
+            results = faiss_index.similarity_search(query, k=3)
         except Exception:
             # Fallback: perform raw index search and map indices to the docstore
             query_embedding = generate_query_embedding(query)
